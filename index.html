@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwiftRide - 3D Bus Booking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+   
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-bus"></i>
+                <span>SwiftRide</span>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="#">Home</a>
+                <a href="#">Book</a>
+                <a href="#">Routes</a>
+                <a href="#">Offers</a>
+                <a href="#">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="floating-bus bus-1">
+        <i class="fas fa-bus"></i>
+    </div>
+    <div class="floating-bus bus-2">
+        <i class="fas fa-bus"></i>
+    </div>
+    <div class="floating-bus bus-3">
+        <i class="fas fa-bus"></i>
+    </div>
+
+    <section class="hero">
+        <div class="search-card floating">
+            <h2>Book Your Bus Journey</h2>
+            <form class="search-form" id="searchForm">
+                <div class="form-group">
+                    <label for="from">From</label>
+                    <input type="text" id="from" placeholder="Departure city" required>
+                </div>
+                <div class="form-group">
+                    <label for="to">To</label>
+                    <input type="text" id="to" placeholder="Destination city" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Travel Date</label>
+                    <input type="date" id="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="passengers">Passengers</label>
+                    <select id="passengers">
+                        <option value="1">1 Passenger</option>
+                        <option value="2">2 Passengers</option>
+                        <option value="3">3 Passengers</option>
+                        <option value="4">4 Passengers</option>
+                        <option value="5">5 Passengers</option>
+                    </select>
+                </div>
+                <button type="submit" class="search-btn">Search Buses <i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </section>
+
+    <section class="bus-list" id="busList">
+        <!-- Buses will be loaded here by JavaScript -->
+    </section>
+
+    <section class="features">
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3 class="feature-title">Safe Travel</h3>
+            <p class="feature-desc">Our buses are regularly sanitized and equipped with safety measures for your secure journey.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-tags"></i>
+            </div>
+            <h3 class="feature-title">Best Offers</h3>
+            <p class="feature-desc">Enjoy exclusive discounts and cashback offers on every booking you make with us.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-headset"></i>
+            </div>
+            <h3 class="feature-title">24/7 Support</h3>
+            <p class="feature-desc">Our customer care team is available round the clock to assist you with any queries.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h3 class="feature-title">Wide Network</h3>
+            <p class="feature-desc">Connect to over 5000 destinations across the country with our extensive bus network.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>SwiftRide</h3>
+                <p>Your trusted partner for comfortable and affordable bus journeys across the country.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Routes</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Support</h3>
+                <ul class="footer-links">
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-phone"></i> +91 9335056509</li>
+                    <li><i class="fas fa-envelope"></i> info@swiftride.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Bus Street, Transport City</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 SwiftRide. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Book Your Seat</h3>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h4 id="modalBusName"></h4>
+                <p id="modalBusTiming"></p>
+                <div class="seat-selection" id="seatSelection">
+                    <!-- Seats will be generated by JavaScript -->
+                </div>
+                <div class="selected-seats">
+                    <strong>Selected Seats:</strong> <span id="selectedSeatsDisplay">None</span>
+                </div>
+                <div class="total-price">
+                    <strong>Total Price:</strong> $<span id="totalPrice">0</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="cancel-btn" id="cancelBooking">Cancel</button>
+                <button class="confirm-btn" id="confirmBooking">Confirm Booking</button>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
